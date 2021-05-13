@@ -35,7 +35,9 @@ que busca todos los archivos cuyo nombre empiece con "test"
 
 Hay [plugins para Chrome y Firefox](https://chromedriver.chromium.org/getting-started) que te permiten grabar los tests mientras usas una página o app. 
 
-Después los podés guardar en un formato muy simple Y exportarlos como tests para python.
+Te conviene guardar los tests en el formato de SeleniumIDE primero, para eso cree la carpetita test_ide.
+
+Después los podés exportar como tests para python.
 
 Suele ser conveniente mejorar el código generado
 
