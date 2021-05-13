@@ -6,6 +6,21 @@ Vamos a usar [Selenium con Python](https://selenium-python.readthedocs.io/gettin
 * Puede controlar chrome, firefox, safari, en computadoras y móviles.
 * Se programa fácil, sin funciones asíncronas ni verborrea.
 
+## Crear el ambiente
+
+Conviene crear un ambiente virtual para tener control de las dependecias (es opcional)
+~~~
+python -mvenv testenv
+. testenv/bin/activate
+~~~
+
+Instalar las dependencias
+~~~
+pip install -r requirements.txt
+~~~
+
+Además vas a necesitar un navegador Y el webdriver correspondiente. Aquí están las [instrucciones](https://chromedriver.chromium.org/getting-started) para Chrome.
+
 ## Lo básico
 
 Podés ver ejemplos de cómo hacer distintas cosas en la carpeta ... "ejemplos" (¿sorprendidos?), algunos requieren pa_lib y los podés probar así desde la carpeta donde está este mismo archivo.
@@ -33,7 +48,7 @@ que busca todos los archivos cuyo nombre empiece con "test"
 
 ## Grabar los tests desde el navegador
 
-Hay [plugins para Chrome y Firefox](https://chromedriver.chromium.org/getting-started) que te permiten grabar los tests mientras usas una página o app. 
+Hay [plugins para Chrome y Firefox](https://www.selenium.dev/selenium-ide/) que te permiten grabar los tests mientras usas una página o app. 
 
 Te conviene guardar los tests en el formato de SeleniumIDE primero, para eso cree la carpetita test_ide.
 
