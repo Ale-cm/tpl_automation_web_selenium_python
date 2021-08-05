@@ -3,6 +3,8 @@
 from selenium import webdriver
 import unittest
 import json
+import pickle
+import os
 
 #U: lo que necesita estar cargado en la pagina para que funcione el resto
 JS_INIT_LIBS= """
@@ -52,6 +54,18 @@ def find_element_react(browser, tag, props={}, rootId= 'root', quiereDatos= Fals
 	r= find_elements_react(browser, tag, props, rootId, quiereDatos)
 	return (None if len(r)==0 else r[0])
 
+def cookies_save(driver, fname="cookies.pkl"):
+	pickle.dump( driver.get_cookies() , open(fname,"wb"))
+
+def cookies_load(driver, fname="cookies.pkl", may_not_exist= True):
+	if not os.path.isfile(fname) and may_not_exist:
+		return #A: no existe pero nos dijeron que no lancemos excepcion
+
+	with open(fname, "rb") as f:
+		cookies = pickle.load(f)
+		for cookie in cookies:
+				driver.add_cookie(cookie)
+
 class BaseTest(unittest.TestCase):
 	"""Una base comun para configurar los tests"""
 	def setup_method(self, method):
@@ -63,3 +77,4 @@ class BaseTest(unittest.TestCase):
 	def teardown_method(self, method):
 		self.driver.quit()
  
+
